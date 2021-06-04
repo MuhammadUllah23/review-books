@@ -5,7 +5,7 @@ class ReadersController < ApplicationController
     get '/signup' do
         erb :'readers/signup'
     end
-    post '/readers' do
+    post '/signup' do
         @reader = Reader.create(email: params[:email], username: params[:username], password: params[:password])
         session[:reader_id] = @reader.id
         redirect to '/readers'
