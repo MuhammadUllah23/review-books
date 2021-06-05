@@ -1,4 +1,4 @@
-class Reader < ActiveRecord::Base
+class User < ActiveRecord::Base
     has_many :reviews
     has_secure_password
 end

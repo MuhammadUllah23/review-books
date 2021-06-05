@@ -12,17 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2) do
 
-  create_table "readers", force: :cascade do |t|
-    t.string "email"
-    t.string "username"
-    t.string "password_digest"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string "book_name"
     t.string "book_author"
     t.string "book_review"
-    t.integer "reader_id"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "username"
+    t.string "password_digest"
   end
 
 end
