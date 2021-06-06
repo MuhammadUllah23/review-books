@@ -7,15 +7,23 @@ class UsersController < ApplicationController
     end
     post '/signup' do
         #binding.pry
-        
-        if params[:email] || params[:username] || params[:password].empty?
-            redirect to '/signup'
+        @user = User.new(params)
+        if @user.username.blank? || @user.password.blank?
+            redirect to '/failure'
         else
-            @user = User.create(:email => params[:email], :username => params[:username], :password => params[:password])
+            @user.save
             session[:user_id] = @user.id
-            redirect to '/readers'
+              redirect to '/readers'
         end
        
+    end
+
+    get '/login' do
+        erb :login
+    end
+
+    get '/failure' do
+        erb :error
     end
     
 end
