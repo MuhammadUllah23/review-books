@@ -1,8 +1,8 @@
-<h1>hi</h1>
-
+<h1>List Of Readers Account</h1>
+<br>
 <%@users.each do |user|%>
     <ul>
-        <h2><li><%=user.username%></li></h2>
+        <h2><li><a href= "/user/<%=user.id%>"><%=user.username%></a></li></h2>
         <br>
     </ul>
 <%end%>
