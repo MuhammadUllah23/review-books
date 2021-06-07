@@ -1,1 +1,8 @@
 <h1>hi</h1>
+
+<%@users.each do |user|%>
+    <ul>
+        <h2><li><%=user.username%></li></h2>
+        <br>
+    </ul>
+<%end%>

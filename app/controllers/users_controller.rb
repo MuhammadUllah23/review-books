@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     get '/readers' do
+        @users = User.all
         erb :'users/index'
     end
     get '/signup' do
