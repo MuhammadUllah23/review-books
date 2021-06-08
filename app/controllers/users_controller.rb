@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         #binding.pry
         user = User.new(params)
         if !user.save
-            redirect to '/failure'
+            redirect to '/signup'
         else
             user.save
             session[:user_id] = user.id
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to '/readers'
         else
-            redirect to '/failure'
+            redirect to '/login'
         end  
     end
 
@@ -37,12 +37,9 @@ class UsersController < ApplicationController
         
     end
 
-    get '/failure' do
-        erb :error
-    end
-
     post '/logout' do
         session.clear
+        redirect to "/"
     end
     
 end
