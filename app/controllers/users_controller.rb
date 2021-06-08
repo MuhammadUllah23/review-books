@@ -6,17 +6,17 @@ class UsersController < ApplicationController
     get '/signup' do
         erb :'users/signup'
     end
+
     post '/signup' do
         #binding.pry
-        @user = User.new(params)
-        if @user.username.blank? || @user.password.blank?
+        user = User.new(params)
+        if !user.save
             redirect to '/failure'
         else
-            @user.save
-            session[:user_id] = @user.id
-              redirect to '/readers'
-        end
-       
+            user.save
+            session[:user_id] = user.id
+            redirect to '/readers'
+        end     
     end
 
     get '/login' do
@@ -30,7 +30,10 @@ class UsersController < ApplicationController
             redirect to '/readers'
         else
             redirect to '/failure'
-        end
+        end  
+    end
+
+    get 'edit/:id' do
         
     end
 
