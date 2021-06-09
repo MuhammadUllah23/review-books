@@ -33,8 +33,13 @@ class UsersController < ApplicationController
         end  
     end
 
-    get 'edit/:id' do
+    get '/edit/:id' do
         
+    end
+
+    get '/account/:id' do
+        @user = User.find(params[:id])
+        erb :'users/account'
     end
 
     post '/logout' do
