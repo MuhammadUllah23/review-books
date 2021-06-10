@@ -10,4 +10,9 @@
 
 <p><%=@review.book_review%></p>
 
+<br><br>
+<form method="GET" action="/review/edit/<%=@review.user[:id]%>">
+<%if logged_in? && current_user==@review.user[:id]%>
+<input type="submit" value="Edit Review">
+</form>
 
