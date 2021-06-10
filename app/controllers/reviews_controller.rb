@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
     get '/reviews' do
         @reviews = Review.all
+        #binding.pry
         erb :'book-reviews/index'
     end
     
@@ -10,8 +11,9 @@ class ReviewsController < ApplicationController
     end
 
     post '/review' do
-        @review = current_user.reviews.build(params)
-        redirect to '/review/:id'
+        review = current_user.reviews.build(params)
+        review.save
+        redirect to '/reviews'
     end
     
 end
