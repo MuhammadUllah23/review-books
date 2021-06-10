@@ -1,5 +1,5 @@
 <h1>Hi</h1>
 <%@reviews.each do |review|%>
-    <h2><%=review.user_id%> <%=review.user[:username]%></h2>
+    <h2><%=review.book_name%> by <%=review.book_author%></h2>
     
 <%end%>
