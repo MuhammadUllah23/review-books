@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     get '/account/:id' do
         @user = User.find(params[:id])
         erb :'users/account'
-    end
+    end 
 
     post '/logout' do
         session.clear

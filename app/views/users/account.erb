@@ -1,1 +1,4 @@
-<h1>HI</h1>
+<h1><%=@user.username%></h1>
+<% if logged_in? && current_user.id == @user.id%>
+<p><a href="/reviews/new">Create a new review</a></p>
+<% end %>

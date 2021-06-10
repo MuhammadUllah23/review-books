@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     end
 
     post '/review' do
-        @review = current_user.movies.build(params)
+        @review = current_user.reviews.build(params)
         redirect to '/review/:id'
     end
     
