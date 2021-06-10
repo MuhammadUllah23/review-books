@@ -16,7 +16,10 @@ class ReviewsController < ApplicationController
         redirect to '/reviews'
     end
 
-    
+    get "/review/edit/:id" do
+        @review = Review.find(params[:id])
+        erb :'book-reviews/edit'
+    end
 
     get '/review/:id' do
         @review = Review.find(params[:id])
