@@ -23,4 +23,17 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  private 
+      def redirect_if_not_logged_in 
+        if !logged_in?
+          redirect to '/login' 
+       end
+      end
+
+      def redirect_if_not_authorized 
+        if @review.user != current_user 
+            redirect '/movies'
+        end
+      end
+
 end
