@@ -12,7 +12,7 @@
 
 <br><br>
 <form method="GET" action="/review/edit/<%=@review.user[:id]%>">
-<%if logged_in? && current_user==@review.user[:id]%>
+<%if logged_in? && current_user==@review.user_id%>
 <input type="submit" value="Edit Review">
 </form>
 

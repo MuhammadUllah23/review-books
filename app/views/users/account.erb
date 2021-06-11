@@ -2,3 +2,13 @@
 <% if logged_in? && current_user.id == @user.id%>
 <p><a href="/reviews/new">Create a new review</a></p>
 <% end %>
+
+<ul>
+    <%@user.reviews.each do |review|%>
+    
+    <li>
+    <h3><a href="/review/<%=review.id%>"><%=review.review_title%></a></h3>
+    <p><%=review.book_name%></p>
+    </li>
+    <%end%>
+</ul>>
