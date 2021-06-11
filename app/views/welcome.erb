@@ -5,8 +5,13 @@
 </head>
 <body>
 <h1>Welcome to Bookmarked!</h1>
+ 
 <h3>This is where you can review the books you have read or read other reviews to find your next book!</h3>
+<% if logged_in? %>
+<p>Welcome <%=current_user.username%>. Would you like to <a href="/reviews/new">create a new review</a>?</p>
+<%else%>
 <P>To write your own review <a href = '/login'>log in</a> or <a href = '/signup'>sign up.</a></P>
+<%end%>
 </body>
 </html>
 
