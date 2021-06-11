@@ -11,6 +11,6 @@
 <p><%=@review.book_review%></p>
 
 <br><br>
-<%if current_user.id ==@review.user_id%>
+<%if current_user.id == @review.user_id%>
 <a href="/review/edit/<%=@review.user[:id]%>"><button>Edit Review</button></a>
 <%end%>

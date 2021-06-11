@@ -33,5 +33,10 @@ class ReviewsController < ApplicationController
         erb :'book-reviews/show'
     end
 
+    delete '/review/:id' do
+        @review = Review.find(params[:id])
+        @review.destroy
+        redirect to "/account/#{current_user.id}"
+    end
     
 end
