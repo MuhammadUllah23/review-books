@@ -13,4 +13,9 @@
 <br><br>
 <%if current_user.id == @review.user_id%>
 <a href="/review/edit/<%=@review.user[:id]%>"><button>Edit Review</button></a>
+
+<form method="POST" action="/review/<%=@review.id%>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Movie">
+</form>
 <%end%>
