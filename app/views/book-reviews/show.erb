@@ -11,8 +11,6 @@
 <p><%=@review.book_review%></p>
 
 <br><br>
-<form method="GET" action="/review/edit/<%=@review.user[:id]%>">
-<%if logged_in? && current_user==@review.user_id%>
-<input type="submit" value="Edit Review">
-</form>
-
+<%if current_user.id ==@review.user_id%>
+<a href="/review/edit/<%=@review.user[:id]%>"><button>Edit Review</button></a>
+<%end%>

@@ -23,8 +23,9 @@ class ReviewsController < ApplicationController
 
     patch '/review/:id' do
         @review = Review.find(params[:id])
-        @review.update(params)
-        redirect to "/reviews/#{@review.id}"
+        #binding.pry
+        @review.update(params[:review])
+        redirect to "/review/#{@review.id}"
     end
 
     get '/review/:id' do
