@@ -21,6 +21,12 @@ class ReviewsController < ApplicationController
         erb :'book-reviews/edit'
     end
 
+    patch '/review/:id' do
+        @review = Review.find(params[:id])
+        @review.update(params)
+        redirect to "/reviews/#{@review.id}"
+    end
+
     get '/review/:id' do
         @review = Review.find(params[:id])
         erb :'book-reviews/show'
