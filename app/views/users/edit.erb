@@ -1,10 +1,14 @@
-<form method="POST" action="/review/<%=@user.id%>">
+<form method="POST" action="/user/<%=@user.id%>">
 <input type="hidden" name="_method" value="PATCH">
 
 <label for="username">Username: </label>
 <br>
-<input type="text" name="user[username]">
+<input type="text" name="user[username]" >
+<br><br>
+<label for="password">Password: </label>
+<br>
+<input type="password" name="user[password]" value=<%=@user.password%>>
 
-<input type="submit" value="Update Accpunt" >
+<input type="submit" value="Update Account" >
 
 </form>

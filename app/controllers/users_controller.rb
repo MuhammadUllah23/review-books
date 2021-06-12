@@ -41,10 +41,15 @@ class UsersController < ApplicationController
     end
 
     patch '/user/:id' do
+        #raise params.inspect
         redirect_if_not_logged_in
         @user = User.find(params[:id])
+        #binding.pry
         redirect_if_not_authorized
+        #@user.username = params[:username]
         @user.update(params[:user])
+        
+        #binding.pry
         redirect to "/account/#{@user.id}"
     end
 

@@ -1,6 +1,7 @@
 <h1><%=@user.username%></h1>
 <% if logged_in? && current_user.id == @user.id%>
 <p><a href="/reviews/new">Create a new review</a></p>
+<a href="/user/edit/<%=@user.id%>"><button>Edit Account</button></a>
 <% end %>
 
 <ul>
