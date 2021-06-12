@@ -1,7 +1,10 @@
 <form method="POST" action="/review/<%=@user.id%>">
 <input type="hidden" name="_method" value="PATCH">
 
+<label for="username">Username: </label>
+<br>
+<input type="text" name="user[username]">
 
-<input type="submit" value="Update Review" >
+<input type="submit" value="Update Accpunt" >
 
 </form>
