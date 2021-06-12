@@ -7,23 +7,30 @@ class ReviewsController < ApplicationController
     end
     
     get '/reviews/new' do
+        redirect_if_not_logged_in 
         erb :'book-reviews/new'
     end
 
     post '/review' do
-        review = current_user.reviews.build(params)
-        review.save
+        redirect_if_not_logged_in 
+        @review = current_user.reviews.build(params)
+        redirect_if_not_authorized 
+        @review.save
         redirect to '/reviews'
     end
 
     get "/review/edit/:id" do
+        redirect_if_not_logged_in 
         @review = Review.find(params[:id])
+        redirect_if_not_authorized
         erb :'book-reviews/edit'
     end
 
     patch '/review/:id' do
+        redirect_if_not_logged_in 
         @review = Review.find(params[:id])
         #binding.pry
+        redirect_if_not_authorized 
         @review.update(params[:review])
         redirect to "/review/#{@review.id}"
     end
@@ -34,9 +41,18 @@ class ReviewsController < ApplicationController
     end
 
     delete '/review/:id' do
+        redirect_if_not_logged_in 
         @review = Review.find(params[:id])
+        redirect_if_not_authorized 
         @review.destroy
         redirect to "/account/#{current_user.id}"
     end
     
+
+    private
+        def redirect_if_not_authorized 
+            if @review.user != current_user 
+                redirect '/reviews'
+            end
+        end
 end

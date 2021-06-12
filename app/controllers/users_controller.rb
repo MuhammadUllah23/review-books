@@ -33,8 +33,18 @@ class UsersController < ApplicationController
         end  
     end
 
-    get '/edit/:id' do
-        
+    get '/user/edit/:id' do
+        redirect_if_not_logged_in
+        @user = User.find(params[:id])
+        redirect_if_not_authorized
+        erb :'users/edit'
+    end
+
+    patch '/user/:id' do
+        redirect_if_not_logged_in
+        @user = User.find(params[:id])
+        redirect_if_not_authorized
+        @user.update
     end
 
     get '/account/:id' do
@@ -49,5 +59,10 @@ class UsersController < ApplicationController
     end
 
     
-    
+    private
+        def redirect_if_not_authorized 
+            if @user != current_user 
+                redirect to '/'
+            end
+        end
 end
