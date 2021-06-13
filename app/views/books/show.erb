@@ -1,6 +1,7 @@
-<%@books.each do |book|%>
-    <h2><%=book.book_name%> by <%=book.book_author%></h2>
-    <form method="POST" action="/book/<%=book.id%>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Book"> 
-<%end%>
+<h1>List of Reviews for <%=@book.book_name%></h1>
+<h5><%= @book.book_author %></h5>
+<h5><%= @book.book_genre %></h5>
+<br>
+<% @book.each do |book|%>
+<h3>
+<% end %>

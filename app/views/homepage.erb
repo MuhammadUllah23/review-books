@@ -12,13 +12,15 @@
 <%else%>
 <P>To write your own review <a href = '/login'>log in</a> or <a href = '/signup'>sign up.</a></P>
 <%end%>
-<h1>List Of Readers Account</h1>
-<br>
-<%@users.each do |user|%>
-    <ul>
-        <h2><li><a href= "/account/<%=user.id%>"><%=user.username%></a></li></h2>
-        <br>
-    </ul>
+<h1>List of Books: </h1>
+<%@books.each do |book|%>
+    <h2><%=book.book_name%></h2> 
+    <p> by <%=book.book_author%></p>
+    <p><%=book.book_genre%></p>
+
+    <form method="POST" action="/book/<%=book.id%>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Book"> 
 <%end%>
 </body>
 </html>
