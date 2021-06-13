@@ -5,6 +5,6 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :book_author
       t.string :book_review
       t.integer :user_id
-  end
+    end
   end
 end

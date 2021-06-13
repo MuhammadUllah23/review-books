@@ -21,10 +21,10 @@
     <input type="submit" value="Log Out">
     </form>
     <% else %>
-    <form method="POST" action="/login">
-    <input type="submit" value="Log In">
+    <a href="/login"><button>Log In</button></a>
     </form>
     <% end %>
+    <a href="/"><button>Home Page</button></a>
     <div class="wrapper">
 
         <%= yield %>

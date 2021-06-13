@@ -12,6 +12,14 @@
 <%else%>
 <P>To write your own review <a href = '/login'>log in</a> or <a href = '/signup'>sign up.</a></P>
 <%end%>
+<h1>List Of Readers Account</h1>
+<br>
+<%@users.each do |user|%>
+    <ul>
+        <h2><li><a href= "/account/<%=user.id%>"><%=user.username%></a></li></h2>
+        <br>
+    </ul>
+<%end%>
 </body>
 </html>
 

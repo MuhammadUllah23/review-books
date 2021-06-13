@@ -10,7 +10,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    @users = User.all
+    erb :homepage
   end
 
   helpers do
