@@ -14,11 +14,6 @@ class ApplicationController < Sinatra::Base
     erb :homepage
   end
 
-  get "/books" do
-    @books = Book.all
-    erb :'books/index'
-  end
-
   get "/book/:id" do
     @book = Book.find(params[:id])
     erb :'books/show'
