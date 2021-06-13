@@ -1,20 +1,14 @@
 <h1>Edit Review</h1>
 
+<h3>Book Title: </h3> <p><%=@review.book[:book_name]%></p>
+<h3>Author: </h3> <p><%=@review.book[:book_author]%></p>
+<h3>Genre: </h3> <p><%=@review.book[:book_genre]%></p>
+
 <form method="POST" action="/review/<%=@review.id%>">
 <input type="hidden" name="_method" value="PATCH">
 
 <label for="review_title">Title of Review: <label><br>
 <input type="text" name="review[review_title]" value=<%=@review.review_title%>>
-
-<br><br>
-
-<label for="book_name">Title of Book: <label><br>
-<input type="text" name="review[book_name]" value=<%=@review.book_name%>>
-
-<br><br>
-
-<label for="book_author">Author: </label><br>
-<input type="text" name="review[book_author]" value=<%=@review.book_author%>>
 
 <br><br>
 
