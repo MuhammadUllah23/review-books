@@ -2,23 +2,36 @@
 <form method="POST" action="/review">
 
 <label for="review_title">Title of Review: <label><br>
-<input type="text" name="review_title">
+<input type="text" name="review[review_title]">
 
 <br><br>
+<label for="book_review">Write Review Below:</label>
+<br>
+<textarea type="text" name="review[book_review]" cols="60" rows="12"></textarea>
 
+<br><br>
+<h3>Search for Book</h3>
+
+<% @books.each do |book| %>
+    <input type="search" name=review[book_id] id="<%= book.id %>" >
+<% end %>
+
+<br><br><br>
+
+<h3>New Book</h3>
 <label for="book_name">Title of Book: <label><br>
-<input type="text" name="book_name">
+<input type="text" name="book[book_name]">
 
 <br><br>
 
 <label for="book_author">Author: </label><br>
-<input type="text" name="book_author">
+<input type="text" name="book[book_author]">
 
 <br><br>
 
-<label for="book_review">Write Review Below:</label>
-<br>
-<textarea type="text" name="book_review" cols="60" rows="12"></textarea>
+<label for="book_genre">Description: </label><br>
+<input type="text" name="book[book_genre]">
+
 <br><br>
 <input type="submit" value="Publish Review" id="submit">
 </form>

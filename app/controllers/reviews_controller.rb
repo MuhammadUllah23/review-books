@@ -1,19 +1,23 @@
 class ReviewsController < ApplicationController
 
     get '/reviews' do
-        @reviews = Review.all
+        @books = Book.all
         #binding.pry
         erb :'book-reviews/index'
     end
     
     get '/reviews/new' do
         redirect_if_not_logged_in 
+        @books = Book.all
         erb :'book-reviews/new'
     end
 
     post '/review' do
         redirect_if_not_logged_in 
-        @review = current_user.reviews.build(params)
+        @review = current_user.reviews.build(params[:review])
+        if !params[:book].empty?
+            @review.book = Book.create(params[:book])
+        end
         redirect_if_not_authorized 
         @review.save
         redirect to '/reviews'
@@ -47,7 +51,7 @@ class ReviewsController < ApplicationController
         @review.destroy
         redirect to "/account/#{current_user.id}"
     end
-    
+   
 
     private
         def redirect_if_not_authorized 
