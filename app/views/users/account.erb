@@ -8,7 +8,7 @@
     
     <li>
     <h3><a href="/review/<%=review.id%>"><%=review.review_title%></a></h3>
-    <p><%=review.book_name%></p>
+    <p><%=review.book[:book_name]%></p>
     </li>
     <%end%>
 </ul>

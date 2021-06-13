@@ -1,0 +1,10 @@
+<h1>List of Reviews:</h1>
+<br>
+<% @reviews.each do |review| %>
+<h3><%= review.review_title %></h3>
+<p>by <%= review.user[:username] %></p>
+<br>
+<p>Book: <%=review.book[:book_name] %></p>
+<p><a href="/review/<%=review.id%>">Click to read review</a></p>
+<br><br>
+<% end %>

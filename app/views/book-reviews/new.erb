@@ -12,11 +12,14 @@
 <br><br>
 <h3>Search for Book</h3>
 
-<% @books.each do |book| %>
-    <input type="search" name=review[book_id] id="<%= book.id %>" >
+<% @books.each do |book|%>
+<input type="radio" name="review[book_id]" id="<%= book.id %>" value="<%= book.id %>"><%= book.book_name %><br>
 <% end %>
 
+<br>
+
 <br><br><br>
+
 
 <h3>New Book</h3>
 <label for="book_name">Title of Book: <label><br>
@@ -29,7 +32,7 @@
 
 <br><br>
 
-<label for="book_genre">Description: </label><br>
+<label for="book_genre">Genre: </label><br>
 <input type="text" name="book[book_genre]">
 
 <br><br>

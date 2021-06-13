@@ -1,0 +1,6 @@
+<%@books.each do |book|%>
+    <h2><%=book.book_name%> by <%=book.book_author%></h2>
+    <form method="POST" action="/book/<%=book.id%>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Book"> 
+<%end%>
