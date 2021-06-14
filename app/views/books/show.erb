@@ -1,7 +1,12 @@
 <h1>List of Reviews for <%=@book.book_name%></h1>
-<h5><%= @book.book_author %></h5>
-<h5><%= @book.book_genre %></h5>
+<h4><%= @book.book_author %></h4>
+<h4><%= @book.book_genre %></h4>
 <br>
-<% @book.each do |book|%>
-<h3></h3>>
+<% @reviews.each do |review|%>
+<%if review.book_id == @book.id%>
+<h3><%= review.review_title%></h3>
+<p>By <%= review.user[:username] %></p>
+<p><a href="/review/<%=review.id%>">click to view review</a></p>
+<br>
+<% end %>
 <% end %>
