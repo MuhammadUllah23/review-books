@@ -14,11 +14,7 @@ class ApplicationController < Sinatra::Base
     erb :homepage
   end
 
-  get "/book/:id" do
-    @book = Book.find(params[:id])
-    @reviews = Review.all
-    erb :'books/show'
-  end
+  
 
   helpers do
     def current_user
