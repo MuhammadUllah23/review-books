@@ -14,13 +14,20 @@ class ReviewsController < ApplicationController
 
     post '/review' do
         redirect_if_not_logged_in 
-        @review = current_user.reviews.build(params[:review])
+        @review = current_user.reviews.new(params[:review])
         if !params[:book][:book_name].empty?
             @review.book = Book.create(params[:book])
         end
-        redirect_if_not_authorized 
-        @review.save
-        redirect to "/review/#{@review.id}"
+        
+        if !@review.save
+            redirect to "/reviews/new"
+        else
+            redirect_if_not_authorized
+            @review.save
+            redirect to "/review/#{@review.id}"
+        end
+         
+        
     end
 
     get "/review/edit/:id" do
