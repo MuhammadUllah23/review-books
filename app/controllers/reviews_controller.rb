@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
         if !params[:book][:book_name].empty?
             @review.book = Book.create(params[:book])
         end
-        
+
         if !@review.save
             redirect to "/reviews/new"
         else
@@ -53,9 +53,9 @@ class ReviewsController < ApplicationController
     end
 
     delete '/review/:id' do
-        #redirect_if_not_logged_in 
+        redirect_if_not_logged_in 
         @review = Review.find(params[:id])
-        #redirect_if_not_authorized 
+        redirect_if_not_authorized 
         @review.destroy
         redirect to "/reviews"
     end
