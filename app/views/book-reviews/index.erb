@@ -2,7 +2,9 @@
 <br>
 <% @reviews.each do |review| %>
 <h3><%= review.review_title %></h3>
-<p>by <%= review.user[:username] %></p>
+<%if @user = User.find_by(id: review.user_id)%>
+<p>by <%= @user.username %></p>
+<%end%>
 <br>
 <p>Book: <%=review.book[:book_name] %></p>
 <p><a href="/review/<%=review.id%>">Click to read review</a></p>

@@ -24,10 +24,7 @@
     <h2><%=book.book_name%></h2> 
     <p> by <%=book.book_author%></p>
     <p><%=book.book_genre%></p>
-
-    <form method="POST" action="/book/<%=book.id%>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Book"> 
+    <p><a href="/book/<%=book.id%>">Click to see reviiews</a></p>
 <%end%>
 </body>
 </html>

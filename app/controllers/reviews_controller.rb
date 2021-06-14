@@ -41,15 +41,16 @@ class ReviewsController < ApplicationController
 
     get '/review/:id' do
         @review = Review.find(params[:id])
+        #binding.pry
         erb :'book-reviews/show'
     end
 
     delete '/review/:id' do
-        redirect_if_not_logged_in 
+        #redirect_if_not_logged_in 
         @review = Review.find(params[:id])
-        redirect_if_not_authorized 
+        #redirect_if_not_authorized 
         @review.destroy
-        redirect to "/account/#{current_user.id}"
+        redirect to "/reviews"
     end
     delete '/book/:id' do
         @book = Book.find(params[:id])
