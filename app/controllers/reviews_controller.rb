@@ -59,12 +59,7 @@ class ReviewsController < ApplicationController
         @review.destroy
         redirect to "/reviews"
     end
-    delete '/book/:id' do
-        @book = Book.find(params[:id])
-        @book.destroy
-        redirect to "/reviews"
-    end
-
+   
     private
         def redirect_if_not_authorized 
             if @review.user != current_user 
