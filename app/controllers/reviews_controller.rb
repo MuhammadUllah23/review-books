@@ -34,6 +34,7 @@ class ReviewsController < ApplicationController
         redirect_if_not_logged_in 
         @review = Review.find(params[:id])
         redirect_if_not_authorized
+        #binding.pry
         erb :'book-reviews/edit'
     end
 

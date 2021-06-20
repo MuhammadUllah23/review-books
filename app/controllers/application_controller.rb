@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     #enable sessions
     enable :sessions
+    use Rack::Flash, :sweep => true
     set :session_secret, "shhhdfswewe"
   end
 

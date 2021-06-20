@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         #binding.pry
         user = User.new(params)
         if !user.save
+            flash[:message] = "Username has been taken."
             redirect to '/signup'
         else
             user.save
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to '/'
         else
+            flash[:message] = "Invalid Username/Password"
             redirect to '/login'
         end  
     end
