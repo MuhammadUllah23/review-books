@@ -13,7 +13,7 @@
 <h3>Search for Book</h3>
 
 <% @books.each do |book|%>
-<input type="radio" name="review[book_id]" id="<%= book.id %>" value="<%= book.id %>"><%= book.book_name %><br>
+<input type="radio" name="review[book_id]"  value="<%= book.id %>"><%= book.book_name %><br>
 <% end %>
 
 <br>

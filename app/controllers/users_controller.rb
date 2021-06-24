@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     get '/account/:id' do
         @user = User.find(params[:id])
         #binding.pry
-        erb :'users/account'
+        erb :'users/show'
     end 
 
     post '/logout' do
